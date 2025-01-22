@@ -38,6 +38,7 @@ class xBitterT5_predictor:
         model = T5ForSequenceClassification.from_pretrained(ckpt)
         model.eval()
         model.to(self.device)
+        return model
 
     def convert_sequence_to_smiles(self, sequence):
         adapter = AminoAcidAdapter()
@@ -50,7 +51,7 @@ class xBitterT5_predictor:
         self,
         input_dict,
         model_type="xBitterT5-720",
-        batch_size=8,
+        batch_size=4,
     ):
         assert model_type in ["xBitterT5-640", "xBitterT5-720"]
         df = pd.DataFrame(
@@ -97,3 +98,14 @@ class xBitterT5_predictor:
                 y_pred.append(0)
 
         return {i: [y_prob[j], y_pred[j]] for j, i in enumerate(df["id"].tolist())}
+
+
+if __name__ == "__main__":
+    import time
+
+    predictor = xBitterT5_predictor(device="cpu")
+    input_dict = {1: "PA"}
+    start = time.time()
+    result = predictor.predict(input_dict)
+    print(f"Time take in seconds: {time.time() - start}")
+    print(result)
