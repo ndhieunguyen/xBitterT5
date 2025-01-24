@@ -103,7 +103,11 @@ class xBitterT5_predictor:
 if __name__ == "__main__":
     import time
 
-    predictor = xBitterT5_predictor(device="cpu")
+    predictor = xBitterT5_predictor(
+        device="cpu",
+        xBitterT5_640_ckpt="output/xBitterT5-640",
+        xBitterT5_720_ckpt="output/xBitterT5-720",
+    )
     input_dict = {1: "PA"}
     start = time.time()
     result = predictor.predict(input_dict)

@@ -58,7 +58,10 @@ from transformers.utils import (
     logging,
     replace_return_docstrings,
 )
-from transformers.utils.model_parallel_utils import assert_device_map, get_device_map
+from transformers.utils.model_parallel_utils import (
+    assert_device_map,
+    get_device_map,
+)
 from transformers.models.t5.configuration_t5 import T5Config
 
 
