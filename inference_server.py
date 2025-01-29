@@ -238,7 +238,7 @@ class xBitterT5_predictor:
                 y_prob.append(pred["score"])
                 y_pred.append(1)
             else:
-                y_prob.append(1 - pred["score"])
+                y_prob.append(pred["score"])
                 y_pred.append(0)
 
         return {i: [y_prob[j], y_pred[j]] for j, i in enumerate(df["id"].tolist())}
