@@ -12,7 +12,7 @@ This repository is the official implementation of [`xBitterT5`: Identification a
 
 
 ## News
-- 2025.mm.dd: Submitted paper at [Food Chemistry](https://www.sciencedirect.com/journal/food-chemistry) journal.
+
 
 ## Dataset
 - BTP640: First proposed in paper [paper](https://www.sciencedirect.com/science/article/pii/S0888754320301725)
